@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanic Dashboard - Emergency Mechanic</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 Mechanic Dashboard</h1>
+            <p>Monitor and accept emergency requests</p>
+        </header>
+
+        <main>
+            <div id="map"></div>
+
+            <div class="dashboard-panel">
+                <div class="status-box" id="statusBox">
+                    <p>Connecting to server...</p>
+                </div>
+
+                <div class="requests-list" id="requestsList">
+                    <h3>Active Requests</h3>
+                    <div id="requestsContainer">
+                        <p class="no-requests">No active requests</p>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="startTrackingBtn" class="btn btn-primary">Start Tracking</button>
+                    <button id="stopTrackingBtn" class="btn btn-secondary" disabled>Stop Tracking</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="js/mechanic.js"></script>
+</body>
+</html>

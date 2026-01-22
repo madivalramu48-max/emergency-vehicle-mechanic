@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Emergency Mechanic</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <h2>🚗 Emergency Mechanic</h2>
+            </div>
+            <div class="navbar-menu">
+                <a href="#" class="nav-link">Dashboard</a>
+                <a href="about.html" class="nav-link">About</a>
+                <span id="userNameDisplay" class="nav-user"></span>
+                <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Left Panel -->
+                <div class="left-panel">
+                    <div class="card">
+                        <h3>My Current Location</h3>
+                        <div id="map" style="height: 300px; border-radius: 8px; margin: 15px 0;"></div>
+                        <p id="locationDisplay">Fetching location...</p>
+                        <button id="startLocationBtn" class="btn btn-primary">Start Sharing Location</button>
+                        <button id="stopLocationBtn" class="btn btn-secondary" disabled>Stop Sharing</button>
+                    </div>
+
+                    <div class="card">
+                        <h3>Request Emergency Service</h3>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="+1 234 567 8900" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Issue Description</label>
+                            <textarea id="description" rows="4" placeholder="Describe your problem..."></textarea>
+                        </div>
+
+                        <button id="requestHelpBtn" class="btn btn-danger" disabled>Request Help</button>
+                        <div id="statusBox" class="status-message"></div>
+                    </div>
+                </div>
+
+                <!-- Right Panel -->
+                <div class="right-panel">
+                    <div class="card">
+                        <h3>My Active Orders</h3>
+                        <div id="ordersContainer">
+                            <p class="no-data">No active orders</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Order History</h3>
+                        <div id="historyContainer">
+                            <p class="no-data">No history yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="js/user.js"></script>
+</body>
+</html>

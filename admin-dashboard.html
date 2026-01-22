@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Emergency Mechanic</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <nav class="navbar admin-navbar">
+            <div class="navbar-brand">
+                <h2>📊 Admin Dashboard</h2>
+            </div>
+            <div class="navbar-menu">
+                <span id="adminNameDisplay" class="nav-user"></span>
+                <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+            </div>
+        </nav>
+
+        <div class="admin-container">
+            <aside class="admin-sidebar">
+                <button class="sidebar-btn active" data-section="orders">Pending Orders</button>
+                <button class="sidebar-btn" data-section="users">Users</button>
+                <button class="sidebar-btn" data-section="mechanics">Mechanics</button>
+                <button class="sidebar-btn" data-section="logs">User Logs</button>
+                <button class="sidebar-btn" data-section="analytics">Analytics</button>
+            </aside>
+
+            <main class="admin-content">
+                <!-- Pending Orders Section -->
+                <section id="orders-section" class="admin-section active">
+                    <h2>Pending Orders Approval</h2>
+                    <div class="filter-bar">
+                        <select id="orderStatusFilter">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="assigned">Assigned</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div id="ordersTableContainer" class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>User Name</th>
+                                    <th>Phone</th>
+                                    <th>Issue</th>
+                                    <th>Location</th>
+                                    <th>Status</th>
+                                    <th>Created At</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersList">
+                                <tr><td colspan="8" class="no-data">Loading orders...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Users Section -->
+                <section id="users-section" class="admin-section">
+                    <h2>Registered Users</h2>
+                    <div id="usersTableContainer" class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Registered Date</th>
+                                    <th>Total Orders</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersList">
+                                <tr><td colspan="7" class="no-data">Loading users...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Mechanics Section -->
+                <section id="mechanics-section" class="admin-section">
+                    <h2>Registered Mechanics</h2>
+                    <div id="mechanicsTableContainer" class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Mechanic ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Rating</th>
+                                    <th>Completed Jobs</th>
+                                    <th>Registered Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mechanicsList">
+                                <tr><td colspan="8" class="no-data">Loading mechanics...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- User Logs Section -->
+                <section id="logs-section" class="admin-section">
+                    <h2>User Activity Logs</h2>
+                    <div class="filter-bar">
+                        <input type="date" id="logDateFilter">
+                        <select id="logActionFilter">
+                            <option value="">All Actions</option>
+                            <option value="login">Login</option>
+                            <option value="request_created">Request Created</option>
+                            <option value="order_completed">Order Completed</option>
+                        </select>
+                    </div>
+                    <div id="logsTableContainer" class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Log ID</th>
+                                    <th>User ID</th>
+                                    <th>User Name</th>
+                                    <th>Action</th>
+                                    <th>Details</th>
+                                    <th>IP Address</th>
+                                    <th>Timestamp</th>
+                                </tr>
+                            </thead>
+                            <tbody id="logsList">
+                                <tr><td colspan="7" class="no-data">Loading logs...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section id="analytics-section" class="admin-section">
+                    <h2>System Analytics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>Total Users</h4>
+                            <p id="totalUsers" class="stat-number">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Total Mechanics</h4>
+                            <p id="totalMechanics" class="stat-number">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Total Orders</h4>
+                            <p id="totalOrdersCount" class="stat-number">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Completed Today</h4>
+                            <p id="completedOrdersToday" class="stat-number">0</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

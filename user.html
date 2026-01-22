@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Mechanic - Request Help</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚗 Emergency Mechanic</h1>
+            <p>Request roadside assistance</p>
+        </header>
+
+        <main>
+            <div id="map"></div>
+
+            <div class="form-container">
+                <div class="status-box" id="statusBox">
+                    <p>Click "Start Sharing Location" to begin</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="+1 234 567 8900" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Issue Description</label>
+                    <textarea id="description" rows="4" placeholder="Describe your problem (e.g., flat tire, won't start, overheating)"></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button id="startLocationBtn" class="btn btn-primary">Start Sharing Location</button>
+                    <button id="stopLocationBtn" class="btn btn-secondary" disabled>Stop Sharing</button>
+                    <button id="requestHelpBtn" class="btn btn-danger" disabled>Request Help</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="js/user.js"></script>
+</body>
+</html>
